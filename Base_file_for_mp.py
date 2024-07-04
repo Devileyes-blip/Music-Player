@@ -28,7 +28,7 @@ class Music_Player:
     def multiple_task(self,path):
         #To peform multiple task in the button
         threading.Thread(target = self.play_song, args = (path,), daemon = True).start()
-        Child_window.open_window(root)
+        Child_window.open_window(root,self)
         
 
     def pause_(self):
