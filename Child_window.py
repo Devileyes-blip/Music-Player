@@ -1,28 +1,14 @@
-'''
 from tkinter import Toplevel,Button
-
-def xyz():
-    1+2
+from PIL import Image,ImageTk
 
 
-def open_window(parent):
+def open_window(parent , pla):
+    
     child = Toplevel(parent)
     child.title("CHutiyye ")
-    pause_btn = Button(child,text = 'Pause')
+    image = Image.open("C:\\Users\\ryzen\\OneDrive\\Desktop\\Music_Player\\images.png")
+    photo = ImageTk.PhotoImage(image)
+    pause_btn = Button(child,image= photo, command= pla.pause_)
+    pause_btn.image = photo
     pause_btn.pack(pady=50)
-'''
-import tkinter as tk
-from tkinter import Toplevel, Button
-
-def xyz():
-    print("Pause button clicked")  # Placeholder for actual functionality
-
-def open_window(parent):
-    child = Toplevel(parent)
-    child.title("Child Window")
-    pause_btn = Button(child, text='Pause', command=xyz)
-    pause_btn.pack(pady=20, padx=50)  # Adjust padding as needed
-    child.mainloop()
-    # Create a button inside the child window
-    
 
