@@ -85,7 +85,15 @@ def on_closing():
     #Function to stop the song when the 'X' button is clicked on the title bar
     pygame.mixer.music.stop()
     root.destroy()
-
+    
+def set_background(root,image_path):
+    #Set the background
+    image = Image.open(image_path)
+    image = image.resize((root.winfo_screenwidth(), root.winfo_screenheight()), Image.ANTIALIAS)((root.winfo_screenwidth(), root.winfo_screenheight()), Image.ANTIALIAS)
+    bg_image = ImageTk.PhotoImage(image)
+    background_label = Label(root,image = bg_image)
+    background_label.image = bg_image
+    background_label.place(x = 0,y = 0,relwidth = 1,relheight = 1)
 #Main Window
 root = Tk()
 root.title('Music Player Home')
@@ -93,6 +101,7 @@ root.protocol("WM_DELETE_WINDOW", on_closing)
 app = Music_Player()
 song_load = Song_Path_Loader(app)
 widget = Create_Widgets(root,song_load,app)
+set_background(root,"C:\\Users\\ryzen\\OneDrive\\Desktop\\Music_Player\\image_back.png")
 
 
 root.mainloop()
